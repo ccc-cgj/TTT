@@ -1,0 +1,46 @@
+boolean b=true;
+float x, y;
+void setup() {
+  size(999, 999);
+  if (frame!=null)frame.setResizable(true);
+  background(255);
+}
+
+void draw() {
+  stroke(0);
+  line(width/3, 0, width/3, height);
+  line(width*2/3, 0, width*2/3, height);
+  line(0, height/3, width, height/3);
+  line(0, height*2/3, width, height*2/3);
+  makeYourMove();
+}
+
+void makeYourMove() {
+  if (mouseX>0 && mouseX<width/3)x=width/6;
+  else if (mouseX>width/3 && mouseX<width*2/3)x=width/2;
+  else if (mouseX>width*2/3 && mouseX<width)x=width*5/6;
+  if (mouseY>0 && mouseY<height/3)y=height/6;
+  else if (mouseY>height/3 && mouseY<height*2/3)y=height/2;
+  else if (mouseY>height*2/3 && mouseY<height)y=height*5/6;
+  if (mousePressed) {
+    if (b) {
+      noStroke();
+      fill(0);
+      ellipse(x, y, min(width, height)/3-100, min(width, height)/3-100);
+      fill(255);
+      ellipse(x, y, min(width, height)/3-150, min(width, height)/3-150);
+    }
+
+    else {
+      textAlign(CENTER);
+      fill(0);
+      textFont(createFont("Verdana", 100, true));
+      text('X', x, y);
+    }
+  }
+}
+
+void mouseClicked() {
+  if (b)b=false;
+  else b=true;
+}
