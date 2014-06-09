@@ -35,7 +35,7 @@ void makeYourMove() {
       textAlign(CENTER);
       fill(0);
       textFont(createFont("Verdana", 100, true));
-      text('X', x, y+50);
+      text('X', x, y+40);
     }
   }
 }
